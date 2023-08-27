@@ -10,14 +10,7 @@ export class ToyRepository {
   ) {}
 
   async create(toy: ToyEntity) {
-    const newToy = new ToyModel();
-    newToy.brand = toy.brand;
-    newToy.color = toy.color;
-    newToy.name = toy.name;
-    newToy.type = toy.type;
-    newToy.status = toy.status;
-
-    return await this.repository.save(newToy);
+    return await this.repository.save(toy);
   }
 
   async getById(id: number) {
@@ -28,13 +21,7 @@ export class ToyRepository {
     const response = await this.repository.update(id, data);
     if (response.affected) {
       const myToy = await this.repository.findOneBy({ id });
-      if (myToy) {
-        if (data.brand) myToy.brand = data.brand;
-        if (data.color) myToy.color = data.color;
-        if (data.name) myToy.name = data.name;
-        if (data.type) myToy.type = data.type;
-        return myToy;
-      }
+      return myToy;
     }
     return 'item not found';
   }

@@ -18,7 +18,7 @@ export class CreateToyDto {
 
 export class UpdateToyDto {
   @IsOptional()
-  type: string;
+  type: ToyType;
 
   @IsOptional()
   @MinLength(3)
