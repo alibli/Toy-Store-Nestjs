@@ -1,3 +1,4 @@
+import { ToyType } from 'src/toys/toy.type';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -12,8 +13,7 @@ export class Toy {
     nullable: false,
     default: '',
   })
-  type: string;
-  // type: ToyType; //TODO
+  type: ToyType;
 
   @Column()
   brand: string;

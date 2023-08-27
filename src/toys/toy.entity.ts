@@ -1,8 +1,8 @@
 import { CreateToyDto, UpdateToyDto } from './toy.dto';
+import { ToyType } from './toy.type';
 
 export class Toy {
-  type: string;
-  // type: ToyType; //TODO
+  type: ToyType;
   brand: string;
   name: string;
   color: string;
