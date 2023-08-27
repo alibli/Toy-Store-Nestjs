@@ -1,10 +1,11 @@
 import { IsNotEmpty, IsOptional, MaxLength, MinLength } from 'class-validator';
-import { ToyType } from './toy.type';
 
 export class CreateToyDto {
   @IsNotEmpty()
-  // type: string;
-  type: ToyType; //TODO
+  type: string;
+  // type: ToyType;
+  // type: ToyTypeModel;
+  // type: ToyTypeEntity;
 
   @MinLength(3)
   brand: string;
@@ -14,11 +15,13 @@ export class CreateToyDto {
   name: string;
 
   color: string;
+
+  count: number;
 }
 
 export class UpdateToyDto {
   @IsOptional()
-  type: ToyType;
+  type: string;
 
   @IsOptional()
   @MinLength(3)
@@ -31,4 +34,7 @@ export class UpdateToyDto {
 
   @IsOptional()
   color: string;
+
+  @IsOptional()
+  count: number;
 }

@@ -7,10 +7,10 @@ import {
   Put,
   Delete,
 } from '@nestjs/common';
-import { CreateToyDto, UpdateToyDto } from './toy.dto';
+import { CreateToyDto, UpdateToyDto } from '../core/DTOs/toy.dto';
 // import { ToysService } from './toys.service';
-import { ToyFactoryService } from 'src/FactoryService/toy-factory.service';
-import { ToyRepository } from 'src/DB/toy-repository';
+import { ToyFactoryService } from 'src/use-cases/toy/toy-factory.service';
+import { ToyRepository } from 'src/frameworks/database-services/repository/toy-repository';
 
 @Controller('toys')
 export class ToysController {

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { ToyRepository } from 'src/DB/toy-repository';
-import { CreateToyDto, UpdateToyDto } from 'src/toys/toy.dto';
-import { Toy } from 'src/toys/toy.entity';
+import { ToyRepository } from 'src/frameworks/database-services/repository/toy-repository';
+import { CreateToyDto, UpdateToyDto } from 'src/core/DTOs/toy.dto';
+import { Toy } from 'src/core/entities/toy.entity';
 
 @Injectable()
 export class ToyFactoryService {

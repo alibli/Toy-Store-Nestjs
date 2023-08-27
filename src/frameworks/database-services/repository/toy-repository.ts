@@ -1,6 +1,6 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Toy as ToyEntity } from 'src/toys/toy.entity';
-import { Toy as ToyModel } from 'src/typeorm/toy.entity';
+import { Toy as ToyEntity } from 'src/core/entities/toy.entity';
+import { Toy as ToyModel } from 'src/frameworks/database-services/model/toy.entity';
 import { Repository } from 'typeorm';
 
 export class ToyRepository {
