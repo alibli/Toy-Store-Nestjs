@@ -1,15 +1,17 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import entities, { Toy, ToyTypeModel } from './model';
+import entities, { Owner, Toy, ToyTypeModel } from './model';
 import { ToyRepository } from './repository/toy-repository';
 import { ToyFactoryService } from 'src/use-cases/toy/toy-factory.service';
 import { ConfigModule } from '@nestjs/config';
 import { ToyTypeRepository } from './repository/toy-type-repository';
+import { OwnerFactoryService } from 'src/use-cases/owner/factory.service';
+import { OwnerRepository } from './repository/owner.repository';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }), //to load and parse .env file  // important - without this line we couldn't connect to server
-    TypeOrmModule.forFeature([Toy, ToyTypeModel]),
+    TypeOrmModule.forFeature([Toy, ToyTypeModel, Owner]), //? Question
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -23,7 +25,19 @@ import { ToyTypeRepository } from './repository/toy-type-repository';
       synchronize: true,
     }),
   ],
-  providers: [ToyRepository, ToyFactoryService, ToyTypeRepository],
-  exports: [ToyRepository, ToyFactoryService, ToyTypeRepository],
+  providers: [
+    ToyRepository,
+    ToyFactoryService,
+    ToyTypeRepository,
+    OwnerFactoryService,
+    OwnerRepository,
+  ],
+  exports: [
+    ToyRepository,
+    ToyFactoryService,
+    ToyTypeRepository,
+    OwnerFactoryService,
+    OwnerRepository,
+  ],
 })
 export class PostgresDatabaseServicesModule {}

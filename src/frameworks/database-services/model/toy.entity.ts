@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ToyTypeModel } from './toy-type.entity';
+import { Owner } from './owner.entity';
 
 @Entity()
 export class Toy {
@@ -15,11 +16,9 @@ export class Toy {
   })
   id: number;
 
-  @Column()
-  type: string;
-  // @ManyToOne(() => ToyTypeModel)
-  // @JoinColumn({ referencedColumnName: 'name' })
-  // type: ToyTypeModel;
+  @ManyToOne(() => ToyTypeModel)
+  @JoinColumn({ referencedColumnName: 'name' })
+  type: ToyTypeModel;
 
   @Column()
   brand: string;
@@ -29,6 +28,10 @@ export class Toy {
 
   @Column()
   color: string;
+
+  @ManyToOne(() => Owner) //Optinal: (Owner) => Owner.Toys
+  @JoinColumn()
+  owner: Owner;
 
   @Column({
     nullable: true,

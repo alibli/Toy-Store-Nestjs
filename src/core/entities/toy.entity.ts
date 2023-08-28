@@ -1,10 +1,8 @@
 import { CreateToyDto, UpdateToyDto } from '../DTOs/toy.dto';
+import { ToyTypeEntity } from './toy-type.entity';
 
 export class Toy {
-  // type: ToyType;
-  type: string;
-  // type: ToyTypeModel;
-  // type: ToyTypeEntity;
+  type: ToyTypeEntity;
   brand: string;
   name: string;
   color: string;

@@ -1,11 +1,9 @@
 import { IsNotEmpty, IsOptional, MaxLength, MinLength } from 'class-validator';
+import { ToyTypeEntity } from '../entities/toy-type.entity';
 
 export class CreateToyDto {
   @IsNotEmpty()
-  type: string;
-  // type: ToyType;
-  // type: ToyTypeModel;
-  // type: ToyTypeEntity;
+  type: ToyTypeEntity;
 
   @MinLength(3)
   brand: string;
@@ -21,7 +19,7 @@ export class CreateToyDto {
 
 export class UpdateToyDto {
   @IsOptional()
-  type: string;
+  type: ToyTypeEntity;
 
   @IsOptional()
   @MinLength(3)
