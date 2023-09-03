@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ToysController } from './controllers/toys.controller';
 import { DataServicesModule } from './services/datebase-services/services.module';
 import { ToyTypeController } from './controllers/toyType.controller';
+import { OwnerController } from './controllers/owner.controller';
 
 @Module({
   imports: [
@@ -25,7 +26,12 @@ import { ToyTypeController } from './controllers/toyType.controller';
     // }),
   ],
 
-  controllers: [AppController, ToysController, ToyTypeController],
+  controllers: [
+    AppController,
+    ToysController,
+    ToyTypeController,
+    OwnerController,
+  ],
   providers: [AppService],
 })
 export class AppModule {}

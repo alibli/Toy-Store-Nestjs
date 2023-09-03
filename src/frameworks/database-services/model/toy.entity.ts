@@ -12,7 +12,7 @@ import { Owner } from './owner.entity';
 export class Toy {
   @PrimaryGeneratedColumn({
     type: 'bigint',
-    name: 'toy_id',
+    name: 'toyId',
   })
   id: number;
 
@@ -30,13 +30,12 @@ export class Toy {
   color: string;
 
   @ManyToOne(() => Owner) //Optinal: (Owner) => Owner.Toys
-  @JoinColumn()
   owner: Owner;
 
-  @Column({
-    nullable: true,
-  })
-  count: number;
+  // @Column({
+  //   nullable: true,
+  // })
+  // count: number;
 
   @Column()
   status: boolean;

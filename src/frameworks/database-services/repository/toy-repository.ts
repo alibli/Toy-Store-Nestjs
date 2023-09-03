@@ -14,7 +14,8 @@ export class ToyRepository {
   }
 
   async getById(id: number) {
-    return await this.repository.findOneBy({ id });
+    const response = await this.repository.findOneBy({ id });
+    return response;
   }
 
   async updateById(id: number, data: ToyEntity) {

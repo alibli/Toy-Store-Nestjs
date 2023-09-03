@@ -6,14 +6,14 @@ export class Toy {
   brand: string;
   name: string;
   color: string;
-  count: number;
+  // count: number;
   status: boolean;
   constructor(props: CreateToyDto | UpdateToyDto) {
     this.type = props.type;
     this.brand = props.brand;
     this.name = props.name;
     this.color = props.color;
-    this.count = props.count;
+    // this.count = props.count;
     this.status = true;
   }
 }

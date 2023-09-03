@@ -1,16 +1,10 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Toy } from './toy.entity';
 
 @Entity()
 export class Owner {
   @PrimaryGeneratedColumn({
-    name: 'owner_id',
+    name: 'ownerId',
   })
   id: number;
 
@@ -21,6 +15,5 @@ export class Owner {
   no: number;
 
   @OneToMany(() => Toy, (Toy) => Toy.owner)
-  @JoinColumn()
   toys: Toy[];
 }

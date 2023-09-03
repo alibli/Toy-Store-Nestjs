@@ -4,7 +4,6 @@
 
 import { IsInt } from 'class-validator';
 import { Length } from 'class-validator';
-import { Toy } from '../entities/toy.entity';
 import { IsOptional } from 'class-validator';
 
 export class CreateOwnerDto {
@@ -14,7 +13,7 @@ export class CreateOwnerDto {
   @IsInt()
   no: number;
 
-  toys: Toy[];
+  toys: any;
 }
 
 export class UpdateOwnerDto {
@@ -27,5 +26,5 @@ export class UpdateOwnerDto {
   no: number;
 
   @IsOptional()
-  toys: Toy[];
+  toys: any;
 }

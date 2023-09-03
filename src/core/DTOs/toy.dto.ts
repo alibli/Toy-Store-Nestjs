@@ -14,7 +14,8 @@ export class CreateToyDto {
 
   color: string;
 
-  count: number;
+  // count: number;
+  ownerId: any;
 }
 
 export class UpdateToyDto {
@@ -33,6 +34,6 @@ export class UpdateToyDto {
   @IsOptional()
   color: string;
 
-  @IsOptional()
-  count: number;
+  // @IsOptional()
+  // count: number;
 }
